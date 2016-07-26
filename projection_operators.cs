@@ -1,4 +1,5 @@
-// 6. use select to produce a sequence of ints one higher than those in an existing array of ints.
+// 6. use select to produce a sequence of ints one higher than those in an
+// existing array of ints.
 
 public void Linq6() {
 
@@ -20,12 +21,14 @@ public void Linq7() {
         select p.ProductName;
 }
 
-// 8. use select to produce a sequence of strings representing the text version of a sequence of ints
+// 8. use select to produce a sequence of strings representing the text version
+// of a sequence of ints
 
 public void Linq8() {
 
     int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-    string[] numStrings = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+    string[] numStrings = {"zero", "one", "two", "three", "four", "five", "six",
+        "seven", "eight", "nine"};
 
     var textNums =
         from n in numbers
@@ -33,7 +36,8 @@ public void Linq8() {
 
 }
 
-// 9. use select to produce a sequence of the uppercase and lowercase versions of each word in the original array.
+// 9. use select to produce a sequence of the uppercase and lowercase versions
+// of each word in the original array.
 
 public void Linq9() {
 
@@ -45,12 +49,14 @@ public void Linq9() {
 
 }
 
-// 10. use select to produce a sequence containing text representations of digits and whether their length is even or odd.
+// 10. use select to produce a sequence containing text representations of digits
+// and whether their length is even or odd.
 
 public void Linq10() {
 
     int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-    string[] numStrings = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+    string[] numStrings = {"zero", "one", "two", "three", "four", "five", "six",
+        "seven", "eight", "nine"};
 
     var evenOddPred =
         from n in numbers
@@ -58,7 +64,8 @@ public void Linq10() {
 
 }
 
-// 11. use select to produce a sequence containing some properties of Products, including UnitPrice which is renamed to Price in the resulting type.
+// 11. use select to produce a sequence containing some properties of Products,
+// including UnitPrice which is renamed to Price in the resulting type.
 
 public void Linq11() {
 
@@ -66,25 +73,30 @@ public void Linq11() {
 
     var productInfo =
         from p in products
-        select new {productName = p.ProductName, productUnitPrice = p.UnitPrice, unitsInStock = p.UnitsInStock};
+        select new {productName = p.ProductName, productUnitPrice = p.UnitPrice,
+            unitsInStock = p.UnitsInStock};
 
 }
 
-// 12. use an indexed select clause to determine if the value of ints in an array match their position in the array.
+// 12. use an indexed select clause to determine if the value of ints in an array
+// match their position in the array.
 
 public void Linq12() {
 
     int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
 
-    var IsMatchNumbers = numbers.Select((val, index) => new {val, match = val == inde ? true : false});
+    var IsMatchNumbers = numbers.Select((val, index) => new {val,
+            match = val == inde ? true : false});
 }
 
-// 13. use select and where to make a simple query that returns the text form of each digit less than 5
+// 13. use select and where to make a simple query that returns the text form of
+// each digit less than 5
 
 public void Linq13() {
 
     int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-    string[] numStrings = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+    string[] numStrings = {"zero", "one", "two", "three", "four", "five", "six",
+        "seven", "eight", "nine"};
 
     var lessThan5 = numbers.Select(val => {
         if(numStrings[val].Length < 5) {
@@ -93,7 +105,9 @@ public void Linq13() {
     });
 }
 
-// 14. use a compound from clause to make a query that returns all pairs of numbers from both arrays such that the number from nubersA is less than the number from numbersB
+// 14. use a compound from clause to make a query that returns all pairs of
+// numbers from both arrays such that the number from nubersA is less than the
+// number from numbersB
 
 public void Linq14() {
 
@@ -108,7 +122,8 @@ public void Linq14() {
 
 }
 
-// 15. use a compound from clause to select all orders where the order total is less than 500.00
+// 15. use a compound from clause to select all orders where the order total is
+// less than 500.00
 
 public void  Linq15() {
 
@@ -121,7 +136,8 @@ public void  Linq15() {
         select new {c.CustomerID, o.OrderID, o.Total};
 }
 
-// 16.  use a compuond from clause to select all orders where the order was made in 1998 or later.
+// 16.  use a compuond from clause to select all orders where the order was made
+//  in 1998 or later.
 
 public void Linq16() {
 
@@ -134,7 +150,8 @@ public void Linq16() {
         select new { c.CustomerID, o.OrderID, o.OrderDate };
 }
 
-// 17. use a compound from clause to select all orders where the order total is greater than 2000.00 and uses from assignment
+// 17. use a compound from clause to select all orders where the order total is
+//  greater than 2000.00 and uses from assignment
 // to avoid requesting the total twice.
 
 public void Linq17() {
@@ -148,8 +165,9 @@ public void Linq17() {
         select new { c.CustomerID, o.OrderID, o.Total};
 }
 
-// 18. use multiple from clauses so that filtering on customers can be done before selecting their orders.
-// This makes the query more efficient by not selecting and then discarding orders from customers outside of Washington.
+// 18. use multiple from clauses so that filtering on customers can be done
+// before selecting their orders.This makes the query more efficient by not
+// selecting and then discarding orders from customers outside of Washington.
 
 public void Linq18() {
 
@@ -166,14 +184,16 @@ public void Linq18() {
 
 }
 
-// 19. use indexed selectmany clause to select all orders, while referring to customers by the order in which they are returned from the query
+// 19. use indexed selectmany clause to select all orders, while referring to
+// customers by the order in which they are returned from the query
 
 public void Linq19() {
     List<Customer> customers = GetCustomerList();
 
     var customerOrders =  customers.SelectMany(
         (cust, custIndex) => cust.Orders.Select(
-            o => "Customer #" + (custIndex + 1) + " has an order with OrderID " + o.OrderID)
+            o => "Customer #" + (custIndex + 1) + " has an order with OrderID "
+                + o.OrderID)
             );
     )
 }
